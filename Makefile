@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/23 16:42:47 by sdurr             #+#    #+#              #
-#    Updated: 2015/02/25 15:13:45 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/27 15:19:30 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,6 +14,12 @@ NAME		= push_swap
 
 SRC			= main.c \
 				ft_error.c \
+				ft_create_elem.c \
+				test_order.c \
+				test_order_reverse.c \
+				test_egal.c \
+				tri.c \
+				tri_b.c \
 
 OBJ			= $(SRC:.c=.o)
 
