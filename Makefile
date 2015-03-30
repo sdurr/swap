@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/23 16:42:47 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/27 15:19:30 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/27 21:47:34 by karakhirn        ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,7 @@ SRC			= main.c \
 				test_egal.c \
 				tri.c \
 				tri_b.c \
+				test_long.c \
 
 OBJ			= $(SRC:.c=.o)
 
@@ -35,13 +36,11 @@ ECHO			= /bin/echo -e
 PATHLIB    = -I libft/includes
 
 $(NAME)	:		$(OBJ)
-				Make -C libft/
 				@$(ECHO) '> LIB Compiled'
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L libft/ -lft
 				@$(ECHO) '> Compiled'
 
 clean	:
-				Make -C libft/ fclean
 				-@$(RM) $(OBJ)
 				-@$(RM) *~
 				@$(ECHO) '> Directory cleaned'

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 10:23:43 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 17:19:55 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/27 22:03:13 by karakhirn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,51 @@
 #include <stdlib.h>
 #include "libft.h"
 
-t_list		*push_b(t_list *s, t_list *b)
+int		push_b(t_list *s, t_list *b)
 {
 	if (s)
 	{
-		b = ft_create_elem(b, s->i);
+		ft_create_elem(b, s->i);
 		ft_putstr("pb ");
 	}
-	return (b);
+	return (0);
 }
 
-t_list		*test_first_more(t_list *s, t_list *b)
+int		test_first_more(t_list *s, t_list *b)
 {
 	t_list *begin;
 
 	begin = s;
+	if (b)
+		ft_putstr("");
 	while (s->next != NULL)
 	{
 		if (begin->i < s->i)
-			return (begin);
+		{
+			s = begin;
+			return (0);
+		}		
 		s = s->next;
 	}
 	if (begin->i < s->i)
-		return (begin);
-	b = push_b(begin, b);
-	if (begin->next != NULL)
 	{
-		begin = begin->next;
-		begin->prev = NULL;
 		s = begin;
-		return (begin);
+		return (0);
+		}
+	s = begin;
+	if (test_long(s, b) == 0)
+	{
+		push_b(s, b);
+		s = s->next;
+		return (1);
 	}
-	return (NULL);
+	return (0);
 }
 
-t_list		*rotate_a(t_list *s)
+int	rotate_a(t_list *s)
 {
 	t_list *begin;
 	int tmp_first;
-	int tmp;
 	t_list *next;
 
 	tmp_first = s->i;
@@ -63,16 +69,16 @@ t_list		*rotate_a(t_list *s)
 	while (s->next != NULL)
 	{
 		s->i = next->i;
-		tmp = s->i;
 		s = s->next;
 		next = next->next;
 	}
 	s->i = tmp_first;
+	s = begin;
 	ft_putstr("ra ");
-	return (begin);
+	return (0);
 }
 
-t_list		*tri(t_list *s, t_list *b)
+int		tri(t_list *s, t_list *b)
 {
 	t_list *second;
 	t_list *begin;
@@ -80,9 +86,12 @@ t_list		*tri(t_list *s, t_list *b)
 
 	second = s;
 	second = second->next;
-	if (b)
-		ft_putstr("");
-//	s = test_first_more(s, b);
+	if (test_first_more(s, b) == 1)
+	{	
+		s = s->next;
+		s->prev = NULL;
+		return (3);
+	}	
 	begin = s;
 	s = begin;
 	if (s->i > second->i)
@@ -95,6 +104,7 @@ t_list		*tri(t_list *s, t_list *b)
 		s = begin;
 	}
 	else
-		s = rotate_a(s);
-	return (begin);
+		rotate_a(s);
+	s = begin;
+	return (0);
 }

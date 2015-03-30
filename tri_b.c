@@ -7,7 +7,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 10:23:43 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 17:12:02 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/27 23:19:08 by karakhirn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int			rotate_b(t_list *s)
 {
 	t_list *begin;
 	int tmp_first;
-	int tmp;
 	t_list *next;
 
 	tmp_first = s->i;
@@ -30,7 +29,6 @@ int			rotate_b(t_list *s)
 	while (s->next != NULL)
 	{
 		s->i = next->i;
-		tmp = s->i;
 		s = s->next;
 		next = next->next;
 	}
@@ -39,7 +37,29 @@ int			rotate_b(t_list *s)
 	s = begin;
 	return (0);
 }
+int test_more(t_list *s)
+{
+	t_list *begin;
 
+	begin = s;
+	while (s->next != NULL)
+	{
+		if (begin->i < s->i)
+		{
+			s = begin;
+			return (0);
+		}
+		s = s->next;
+	}
+	if (begin->i < s->i)
+	{
+		s = begin;
+		return (0);
+	}
+	s = begin;
+	return (1);
+
+}
 int		tri_b(t_list *s)
 {
 	t_list *second;
@@ -50,7 +70,7 @@ int		tri_b(t_list *s)
 	second = second->next;
 	begin = s;
 	s = begin;
-	if (s->i > second->i)
+	if (s->i > second->i &&  (test_more(s) == 1))
 	{
 		tmp = s->i;
 		s->i = second->i;
