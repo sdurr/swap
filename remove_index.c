@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   remove_index.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/27 08:42:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/30 10:19:36 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/30 10:25:41 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/30 10:28:06 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 #include <stdlib.h>
 
-t_list *ft_create_elem(t_list *s, int i)
+void		remove_index(t_list *s)
 {
 	t_list *begin;
-	t_list *elem;
 
 	begin = s;
-	elem = malloc(sizeof(t_list));
-	elem->next = NULL;
-	elem->i = i;
-	if (s == NULL)
+	while (s->next != NULL)
 	{
-		elem->j = 0;
-		elem->prev = NULL;
-		return (elem);
-	}
-	while(s->next != NULL)
+		s->j = s->j - 1;
 		s = s->next;
-	elem->j = s->j + 1;
-	elem->prev = s;
-	s->next = elem;
-	return (begin);
+	}
+	s->j = s->j - 1;
+	s = begin;
 }

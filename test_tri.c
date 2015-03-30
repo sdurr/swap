@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   test_tri.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/27 08:42:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/30 10:19:36 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/30 10:09:34 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/30 10:47:28 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
-#include <stdlib.h>
 
-t_list *ft_create_elem(t_list *s, int i)
+static int		test_bigest(t_list *s)
 {
 	t_list *begin;
-	t_list *elem;
 
 	begin = s;
-	elem = malloc(sizeof(t_list));
-	elem->next = NULL;
-	elem->i = i;
-	if (s == NULL)
+	while (s->next != NULL)
 	{
-		elem->j = 0;
-		elem->prev = NULL;
-		return (elem);
-	}
-	while(s->next != NULL)
+		if (begin->i < s->i)
+		{
+			s = begin;
+			return (0);
+		}
 		s = s->next;
-	elem->j = s->j + 1;
-	elem->prev = s;
-	s->next = elem;
-	return (begin);
+	}
+	if (begin->i < s->i)
+	{
+		s = begin;
+		return (0);
+	}
+	s = begin;
+	return (1);
+}
+
+int		test_tri(t_list *s)
+{
+	t_list *begin;
+
+	begin = s;
+	begin = begin->next;
+	if (test_order(begin) == 1 && test_bigest(s) == 1)
+		return (0);
+	return (1);
 }

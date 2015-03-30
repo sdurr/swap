@@ -7,7 +7,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 10:23:43 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 23:19:08 by karakhirn        ###   ########.fr       */
+/*   Updated: 2015/03/30 10:15:50 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,26 @@ int		tri_b(t_list *s)
 	second = second->next;
 	begin = s;
 	s = begin;
-	if (s->i > second->i &&  (test_more(s) == 1))
+	if (test_tri(s) == 0)
 	{
-		tmp = s->i;
-		s->i = second->i;
-		s = s->next;
-		s->i = tmp;
-		ft_putstr("sb ");
-		if (test_order(begin) == 0)
+		if (s->i > second->i &&  (test_more(s) == 1))
 		{
-			s = begin;
-			return(0);
+			tmp = s->i;
+			s->i = second->i;
+			s = s->next;
+			s->i = tmp;
+			ft_putstr("sb ");
+			if (test_order(begin) == 0)
+			{
+				s = begin;
+				return(0);
+			}
 		}
+		else
+			rotate_b(s);
 	}
 	else
 		rotate_b(s);
-	s = begin;
+		s = begin;
 	return (0);
 }

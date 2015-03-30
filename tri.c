@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 10:23:43 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 22:03:13 by karakhirn        ###   ########.fr       */
+/*   Updated: 2015/03/30 11:59:53 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		push_b(t_list *s, t_list *b)
 	if (s)
 	{
 		ft_create_elem(b, s->i);
+		remove_index(s);
 		ft_putstr("pb ");
 	}
 	return (0);
@@ -33,26 +34,22 @@ int		test_first_more(t_list *s, t_list *b)
 		ft_putstr("");
 	while (s->next != NULL)
 	{
-		if (begin->i < s->i)
+		if (begin->i > s->i)
 		{
 			s = begin;
 			return (0);
-		}		
+		}
 		s = s->next;
 	}
-	if (begin->i < s->i)
+	if (begin->i > s->i)
 	{
 		s = begin;
 		return (0);
 		}
 	s = begin;
-	if (test_long(s, b) == 0)
-	{
-		push_b(s, b);
-		s = s->next;
-		return (1);
-	}
-	return (0);
+	push_b(s, b);
+	s = s->next;
+	return (1);
 }
 
 int	rotate_a(t_list *s)
@@ -87,24 +84,29 @@ int		tri(t_list *s, t_list *b)
 	second = s;
 	second = second->next;
 	if (test_first_more(s, b) == 1)
-	{	
+	{
 		s = s->next;
 		s->prev = NULL;
 		return (3);
-	}	
+	}
 	begin = s;
 	s = begin;
-	if (s->i > second->i)
+	if (test_tri(s) == 0)
 	{
-		tmp = s->i;
-		s->i = second->i;
-		s = s->next;
-		s->i = tmp;
-		ft_putstr("sa ");
-		s = begin;
+		if (s->i > second->i)
+		{
+			tmp = s->i;
+			s->i = second->i;
+			s = s->next;
+			s->i = tmp;
+			ft_putstr("sa ");
+			s = begin;
+		}
+		else
+			rotate_a(s);
 	}
 	else
 		rotate_a(s);
-	s = begin;
+		s = begin;
 	return (0);
 }

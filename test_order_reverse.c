@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 09:12:07 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 15:28:51 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/03/30 11:59:34 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			test_order_reverse(t_list *s)
 		test = test->next;
 		while (test->next != NULL)
 		{
-			if (s->i > test->i)
+			if (s->i < test->i)
 			{
 				s = begin;
 				return (1);

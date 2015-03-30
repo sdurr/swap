@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:43:46 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/27 21:42:37 by karakhirn        ###   ########.fr       */
+/*   Updated: 2015/03/30 15:33:41 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ int main(int ac, char **av)
 	t_list *s;
 	t_list *b;
 	t_list *begin;
-	t_list *begin_b;
 
 	s = malloc(sizeof(t_list));
 	s ->next = NULL;
 	s->prev = NULL;
+	s->j = 0;
 	i = 1;
 	b = malloc(sizeof(t_list));
 	b->next = NULL;
 	b->prev = NULL;
+	b->j = 0;
 	while (av[i])
 	{
 		ft_create_elem(s, ft_atoi(av[i]));
@@ -53,47 +54,29 @@ int main(int ac, char **av)
 		{
 				s = s->next;
 				s->prev = NULL;
+				begin = begin->next;
+				begin->prev = NULL;
 		}
-		begin = s;
 		s = begin;
 	}
-
-	if (b->next != NULL)
-	{
-		if (b)
-		b = b->next;
-		while (test_order_reverse(b) == 1)
-		{
-			tri_b(b);
-			begin_b = b;
-			while (b)
-			{
-				ft_putnbr(b->i);
-				ft_putchar (' ');
-				b = b->next;
-			}
-			ft_putstr("\n");
-			b = begin_b;
-		}
-	}
+	b = b->next;
+	b->prev = NULL;
+	s = push_a(b, s);
+	b = NULL;
 	ft_putstr("\n pile a \n");
-	if (s)
+	while (s)
 	{
-		while (s)
-		{
 			ft_putnbr(s->i);
 			ft_putchar (' ');
 			s = s->next;
-		}
 	}
-
 	ft_putstr("\npile b \n");
 	while (b)
 	{
 		ft_putnbr(b->i);
 		ft_putchar (' ');
 		b = b->next;
-	}
+		}
 	(void )ac;
 	return (0);
 }

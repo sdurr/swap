@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   push_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/27 08:42:10 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/30 10:19:36 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/30 12:03:34 by sdurr             #+#    #+#             */
+/*   Updated: 2015/03/30 15:32:42 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
-#include <stdlib.h>
+#include "libft.h"
 
-t_list *ft_create_elem(t_list *s, int i)
+t_list 		*push_a(t_list *b, t_list *s)
 {
-	t_list *begin;
-	t_list *elem;
+	t_list *tmp;
 
-	begin = s;
-	elem = malloc(sizeof(t_list));
-	elem->next = NULL;
-	elem->i = i;
-	if (s == NULL)
+	while (b->next != NULL)
+		b = b->next;
+	while (b->prev != NULL)
 	{
-		elem->j = 0;
-		elem->prev = NULL;
-		return (elem);
+		tmp = b->prev;
+		b->next = s;
+		s->prev = b;
+		s = b;
+		s->prev = NULL;
+		b = tmp;
+		tmp->next = NULL;
+		ft_putstr("pa ");
 	}
-	while(s->next != NULL)
-		s = s->next;
-	elem->j = s->j + 1;
-	elem->prev = s;
-	s->next = elem;
-	return (begin);
+	b->next = s;
+	s->prev = b;
+	s = b;
+	s->prev = NULL;
+	b = NULL;
+	return  (s);
 }
