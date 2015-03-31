@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/23 16:42:47 by sdurr             #+#    #+#              #
-#    Updated: 2015/03/30 12:06:28 by sdurr            ###   ########.fr        #
+#    Updated: 2015/03/31 15:18:53 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -25,6 +25,9 @@ SRC			= main.c \
 				remove_index.c \
 				end_elem.c \
 				push_a.c \
+				test_first_last.c \
+				test_long_int_av.c \
+				test_swap.c \
 
 OBJ			= $(SRC:.c=.o)
 
