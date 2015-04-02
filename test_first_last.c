@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 12:16:03 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:05:35 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 13:18:16 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_list			*test_first_last(t_list *s)
 		s->i = elem->i;
 		s = s->prev;
 		s->i = b;
-		rotate_a(s);
+		rotate(s);
 		return (s);
 	}
 	s = s->next;

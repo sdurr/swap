@@ -6,9 +6,11 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 11:14:57 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:15:29 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 13:30:42 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "swap.h"
 
 void		rotate(t_list *s)
 {
@@ -29,5 +31,4 @@ void		rotate(t_list *s)
 	}
 	s->i = tmp_first;
 	s = begin;
-	return (0);
 }

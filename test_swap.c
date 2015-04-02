@@ -6,29 +6,26 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 15:17:33 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:11:58 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 13:18:34 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 #include "libft.h"
 
-void		swap(t_list *s)
+int		test_swap(t_list *s)
 {
 	t_list *second;
 	t_list *begin;
-	int tmp;
 
-	second = s;
-	second = second->next;
-	begin = s;
-	s = begin;
-	if (s->i > second->i)
+	if (s->next != NULL)
 	{
-		tmp = s->i;
-		s->i = second->i;
-		s = s->next;
-		s->i = tmp;
+		second = s;
+		second = second->next;
+		begin = s;
 		s = begin;
+		if (s->i > second->i)
+			return (1);
 	}
+	return (0);
 }

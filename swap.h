@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:44:17 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:22:55 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 13:25:39 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_error(char *av, int ac);
+
 int					test_order(t_list *s);
 int					test_order_reverse(t_list *s);
 int					test_egal(t_list *s);
@@ -45,15 +45,25 @@ int					test_long_int_av(char *s);
 void				remove_index(t_list *s);
 
 
-t_list				*push_a(t_list *b, t_list *s, int *count);
+
+/*fonction d'erreurs*/
+
+int					ft_error(int i);
+
 /*fonction de test */
 int					test_rr(t_list *s);
+int					test_swap(t_list *s);
+int					test(t_list *s);
+
+/* avant envoi vers fonction d'operation */
+t_list				*algo_tri(t_list *s, t_list *b, int *count);
 
 /*fonction d'operation */
+t_list				*rotate_revers(t_list *s);
+t_list				*test_first_last(t_list *s);
+t_list				*push_a(t_list *b, t_list *s);
 void				swap(t_list *s);
 void				rotate(t_list *s);
-t_list				*rotate_revers(t_list *s, char c);
-t_list				*test_first_last(t_list *s, int *count);
-void					push_b(t_list *s, t_list *b);
+void				push_b(t_list *s, t_list *b);
 
 #endif

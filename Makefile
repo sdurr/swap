@@ -6,7 +6,7 @@
 #    By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/23 16:42:47 by sdurr             #+#    #+#              #
-#    Updated: 2015/04/02 09:19:01 by sdurr            ###   ########.fr        #
+#    Updated: 2015/04/02 13:31:06 by sdurr            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,8 +18,6 @@ SRC			= main.c \
 				test_order.c \
 				test_order_reverse.c \
 				test_egal.c \
-				tri.c \
-				tri_b.c \
 				test_long.c \
 				test_tri.c \
 				remove_index.c \
@@ -29,6 +27,12 @@ SRC			= main.c \
 				test_long_int_av.c \
 				test_swap.c \
 				test.c \
+				test_rr.c \
+				algo_tri.c \
+				rotate_revers.c \
+				push_b.c \
+				rotate.c \
+				swap.c \
 
 OBJ			= $(SRC:.c=.o)
 

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_revers.c                                    :+:      :+:    :+:   */
+/*   test_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/02 10:53:07 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 13:27:54 by sdurr            ###   ########.fr       */
+/*   Created: 2015/03/31 15:17:33 by sdurr             #+#    #+#             */
+/*   Updated: 2015/04/02 11:11:58 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
+#include "libft.h"
 
-t_list		*rotate_revers(t_list *s)
+void		swap(t_list *s)
 {
-	int i;
-	t_list *elem;
+	t_list *second;
+	t_list *begin;
+	int tmp;
 
-	elem = malloc(sizeof(t_list));
-	elem->prev = NULL;
-	elem->next = s;
-	i = 1;
-	while (s->next != NULL)
+	second = s;
+	second = second->next;
+	begin = s;
+	s = begin;
+	if (s->i > second->i)
+	{
+		tmp = s->i;
+		s->i = second->i;
 		s = s->next;
-	elem->i = s->i;
-	s = s->prev;
-	s->next = NULL;
-	return (s);
+		s->i = tmp;
+		s = begin;
+	}
 }

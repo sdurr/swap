@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:43:46 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 09:57:56 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 13:51:29 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 	while (av[i])
 	{
 		if (test_long_int_av(av[i]) == 0)
-			return (ft_error(1);
+			return (ft_error(1));
 		ft_create_elem(s, ft_atoi(av[i]));
 		i++;
 	}
@@ -44,10 +44,8 @@ int main(int ac, char **av)
 		return (0);
 	if (test_order(s) == 0)
 		return (ft_error(2));
-	s = test_first_last(s, &count);
 	begin = s;
-	test_swap(s, &count);
-	s = algo_tri(s);
+	s = algo_tri(s, b, &count);
 	ft_putstr("\n pile a \n");
 	while (s)
 	{
