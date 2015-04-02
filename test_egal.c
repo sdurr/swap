@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 13:07:56 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/31 14:57:36 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 09:14:53 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int			test_egal(t_list *s)
 	t_list *begin;
 
 	begin = s;
+	s = s->next;
 	t = s;
 	while (s->next != NULL)
 	{

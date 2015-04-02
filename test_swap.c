@@ -6,14 +6,14 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 15:17:33 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/31 15:20:13 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 11:11:58 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 #include "libft.h"
 
-void		test_swap(t_list *s, int *count)
+void		swap(t_list *s)
 {
 	t_list *second;
 	t_list *begin;
@@ -29,8 +29,6 @@ void		test_swap(t_list *s, int *count)
 		s->i = second->i;
 		s = s->next;
 		s->i = tmp;
-		*count = *count + 1;
-		ft_putstr("sa ");
 		s = begin;
 	}
 }

@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_a.c                                           :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/30 12:03:34 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:24:02 by sdurr            ###   ########.fr       */
+/*   Created: 2015/04/02 11:14:57 by sdurr             #+#    #+#             */
+/*   Updated: 2015/04/02 11:15:29 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
-#include "libft.h"
-
-t_list 		*push_a(t_list *b, t_list *s)
+void		rotate(t_list *s)
 {
-	t_list *tmp;
+	t_list *begin;
+	int tmp_first;
+	t_list *next;
 
-	if (b)
+	tmp_first = s->i;
+	begin = s;
+	next = s;
+	if (next)
+		next = next->next;
+	while (s->next != NULL)
 	{
-		while (b->next != NULL)
-			b = b->next;
-		while (b->prev != NULL)
-		{
-			tmp = b->prev;
-			b->next = s;
-			s->prev = b;
-			s = b;
-			s->prev = NULL;
-			b = tmp;
-			tmp->next = NULL;
-		}
-		b->next = s;
-		s->prev = b;
-		s = b;
-		s->prev = NULL;
-		b = NULL;
+		s->i = next->i;
+		s = s->next;
+		next = next->next;
 	}
-	return  (s);
+	s->i = tmp_first;
+	s = begin;
+	return (0);
 }

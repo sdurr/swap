@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:44:17 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/31 15:19:24 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 11:22:55 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int					test_long(t_list *s, t_list *b);
 int					test_more(t_list *s);
 t_list				*ft_create_elem(t_list *s, int i);
 int					tri(t_list *s, t_list *b, int *count);
-int					rotate_a(t_list *s, int *count);
+
 int					test_first_more(t_list *s, t_list *b, int *count);
-int					push_b(t_list *s, t_list *b, int *count);
+
 
 
 int					end_elem(t_list *s);
@@ -43,7 +43,17 @@ int					test_tri(t_list *s);
 int					test_long_int_av(char *s);
 
 void				remove_index(t_list *s);
-void				test_swap(t_list *s, int *count);
-t_list				*test_first_last(t_list *s, int *count);
+
+
 t_list				*push_a(t_list *b, t_list *s, int *count);
+/*fonction de test */
+int					test_rr(t_list *s);
+
+/*fonction d'operation */
+void				swap(t_list *s);
+void				rotate(t_list *s);
+t_list				*rotate_revers(t_list *s, char c);
+t_list				*test_first_last(t_list *s, int *count);
+void					push_b(t_list *s, t_list *b);
+
 #endif

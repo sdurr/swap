@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 10:23:43 by sdurr             #+#    #+#             */
-/*   Updated: 2015/03/31 16:20:01 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 09:27:34 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		push_b(t_list *s, t_list *b, int *count)
 {
 	if (s->next != NULL)
 	{
-		ft_create_elem(b, s->i);		remove_index(s);
+		ft_create_elem(b, s->i);
+		remove_index(s);
 		*count = *count + 1;
 		ft_putstr("pb ");
 	}
@@ -104,6 +105,8 @@ int		tri(t_list *s, t_list *b, int *count)
 			ft_putstr("sa ");
 			s = begin;
 		}
+		else if (test(s) == 1)
+			return (2);
 		else
 			rotate_a(s, count);
 	}

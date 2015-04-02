@@ -6,19 +6,18 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 12:16:03 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 11:05:35 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/02 11:16:39 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 #include "libft.h"
 
-t_list			*test_first_last(t_list *s)
+int		test_rr(t_list *s)
 {
 	t_list *tmp;
 	t_list *begin;
 	int i;
-	int b;
 	t_list *elem;
 
 	elem = malloc(sizeof(t_list));
@@ -47,20 +46,9 @@ t_list			*test_first_last(t_list *s)
 		i = 0;
 	if (i == 1)
 	{
-		elem->i = s->i;
-		s = s->prev;
-		s->next = NULL;
-		while (s->prev != NULL)
-			s = s->prev;
-		s->i = elem->i;
-		s = s->next;
-		b = s->i;
-		s->i = elem->i;
-		s = s->prev;
-		s->i = b;
-		rotate_a(s);
-		return (s);
+		ft_putstr("ici");
+		sleep(3);
+		return (1);
 	}
-	s = s->next;
-	return (s);
+	return (0);
 }
