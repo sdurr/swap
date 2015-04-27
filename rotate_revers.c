@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 10:53:07 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/27 11:06:36 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/27 11:36:23 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_list		*rotate_revers(t_list *s)
 	s->next = NULL;
 	s = begin;
 	s->prev = elem;
-	ft_putstr("elem ");
-	print_list(s);
+	s = s->prev;
 	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 12:40:30 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/19 10:49:05 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/27 11:43:07 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int			test_rr(t_list *s)
 
 	begin = s;
 	first = s->i;
+	if (first == 0)
+		return (0);
+	ft_putstr("first = ");
+	ft_putnbr(s->i);
+	ft_putchar('\n');
 	i = 0;
 	while (i == 0 && s->next != NULL)
 	{
@@ -37,9 +42,12 @@ int			test_rr(t_list *s)
 		s = begin;
 		return (1);
 	}
+	ft_putstr("test");
+	while (s->next != NULL)
+		s = s->next;
 	end = s->i;
 	if (s->prev != NULL)
-	s = s->prev;
+		s = s->prev;
 	while (i == 0 && s->prev != NULL)
 	{
 		if (end > s->i)
