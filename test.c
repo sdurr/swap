@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_first_last.c                                  :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/31 12:16:03 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 13:52:22 by sdurr            ###   ########.fr       */
+/*   Created: 2015/04/19 10:35:24 by sdurr             #+#    #+#             */
+/*   Updated: 2015/04/19 10:49:54 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "swap.h"
 #include "libft.h"
@@ -18,18 +19,17 @@ int			test(t_list *s)
 	t_list *tmp;
 	t_list *begin;
 	int i;
+	static int j=0;
 
-	ft_putstr("test.c rentre\n");
-	ft_putchar('\n');
+	j++;
 	if (!s)
 		return (0);
 	if (s->next == NULL)
 	{
-		ft_putstr("test.c sort s->next == NULL\n");
 		return (0);
 	}
 	i = 1;
-	ft_putnbr(s->i);
+//	ft_putnbr(s->i);
 
 	tmp = s;
 	begin = s;
@@ -51,9 +51,8 @@ int			test(t_list *s)
 	if (i == 1)
 	{
 		s = begin;
-		ft_putstr("test.c sort\n");
 		return (1);
 	}
-	ft_putstr("test.c sort\n");
+	s = begin;
 	return (0);
 }

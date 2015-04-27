@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:44:17 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 13:25:39 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/27 10:35:36 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int					test_tri(t_list *s);
 int					test_long_int_av(char *s);
 
 void				remove_index(t_list *s);
+void				print_list(t_list *s);
 
 
 

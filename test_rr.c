@@ -6,11 +6,12 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 12:40:30 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 12:49:02 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/19 10:49:05 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
+#include "libft.h"
 
 int			test_rr(t_list *s)
 {
@@ -37,6 +38,7 @@ int			test_rr(t_list *s)
 		return (1);
 	}
 	end = s->i;
+	if (s->prev != NULL)
 	s = s->prev;
 	while (i == 0 && s->prev != NULL)
 	{
