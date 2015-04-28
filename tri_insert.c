@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_b.c                                           :+:      :+:    :+:   */
+/*   tri_insert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/02 11:20:41 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/28 18:36:08 by sdurr            ###   ########.fr       */
+/*   Created: 2015/04/28 18:59:10 by sdurr             #+#    #+#             */
+/*   Updated: 2015/04/28 20:19:10 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
-#include "libft.h"
+#include "push.h"
 
-t_list		*push_b(t_list *s, t_list *b)
+void		tri_insertion(int *t, int n)
 {
-	if (b->i == 0)
-		b->i = s->i;
-	else
-		ft_create_elem(b, s->i);
-	s = s->next;
-	s->prev = NULL;
-	return (s);
+	int		i;
+	int		p;
+	int		j;
+	int		x;
+
+	i = 1;
+	while (i < n)
+	{
+		x = t[i];
+		p = i - 1;
+		while (t[p] > x && p >0)
+			p--;
+		p++;
+		j = i - 1;
+		while (j >= p)
+		{
+			t[j + 1] = t[j];
+			j--;
+		}
+		t[p] = x;
+		i++;
+	}
 }

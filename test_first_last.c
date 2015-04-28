@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/31 12:16:03 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/27 10:53:49 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/28 18:24:06 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ t_list			*test_first_last(t_list *s)
 	t_list *tmp;
 	t_list *begin;
 	int i;
-	int b;
 	t_list *elem;
-
-		ft_putstr("test");
 
 	elem = malloc(sizeof(t_list));
 	elem->prev = NULL;
@@ -47,21 +44,16 @@ t_list			*test_first_last(t_list *s)
 	}
 	if (tmp->i > s->i)
 		i = 0;
+
 	if (i == 1)
 	{
 		elem->i = s->i;
 		s = s->prev;
 		s->next = NULL;
-		while (s->prev != NULL)
-			s = s->prev;
-		s->i = elem->i;
-		s = s->next;
-		b = s->i;
-		s->i = elem->i;
+		s = begin;
+		s->prev = elem;
 		s = s->prev;
-		s->i = b;
 		rotate(s);
-		print_list(s);
 		return (s);
 	}
 	s = s->next;

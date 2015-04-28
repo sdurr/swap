@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:43:46 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/02 13:51:29 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/28 20:19:51 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int main(int ac, char **av)
 	if (test_order(s) == 0)
 		return (ft_error(2));
 	begin = s;
+//	tri_insertion(s, count);
 	s = algo_tri(s, b, &count);
 	ft_putstr("\n pile a \n");
 	while (s)

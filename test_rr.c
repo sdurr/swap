@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 12:40:30 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/27 11:43:07 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/28 18:33:51 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,40 @@ int			test_rr(t_list *s)
 
 	begin = s;
 	first = s->i;
+	if (s->next == NULL)
+		return (0);
 	if (first == 0)
 		return (0);
-	ft_putstr("first = ");
-	ft_putnbr(s->i);
-	ft_putchar('\n');
-	i = 0;
-	while (i == 0 && s->next != NULL)
+	i = 1;
+	while (i == 1 && s->next != NULL)
 	{
-		if (first < s->i)
-			i = 1;
+		if (first > s->i)
+			i = 0;
 		else
 			s = s->next;
 	}
-	if (first < s->i)
-		i = 1;
+	if (first > s->i)
+		i = 0;
 	if (i == 1)
 	{
 		s = begin;
 		return (1);
 	}
-	ft_putstr("test");
 	while (s->next != NULL)
 		s = s->next;
 	end = s->i;
 	if (s->prev != NULL)
 		s = s->prev;
-	while (i == 0 && s->prev != NULL)
+	i = 1;
+	while (i == 1 && s->prev != NULL)
 	{
-		if (end > s->i)
-			i = 1;
+		if (end < s->i)
+			i = 0;
 		else
 			s = s->prev;
 	}
-	if (end > s->i)
-		i = 1;
+	if (end < s->i)
+		i = 0;
 	if (i == 1)
 	{
 		s = begin;

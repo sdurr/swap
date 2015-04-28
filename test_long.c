@@ -6,7 +6,7 @@
 /*   By: karakhirn <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 21:43:22 by karakhirn         #+#    #+#             */
-/*   Updated: 2015/04/02 09:26:47 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/28 18:18:47 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ int		test_long(t_list *s, t_list *b)
 
 	s_b = s;
 	b_b = b;
-	while (s->next != NULL)
+	while (s->next != NULL && b->next != NULL)
+	{
 		s = s->next;
-	while (b->next != NULL)
 		b = b->next;
+	}
 	if (s->next == NULL && b->next == NULL)
+	{
+		s = s_b;
+		b = b_b;
 		return (0);
-	s = s_b;
-	b = b_b;
+	}
 	return (1);
 }

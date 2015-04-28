@@ -6,7 +6,7 @@
 /*   By: sdurr <sdurr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/23 16:44:17 by sdurr             #+#    #+#             */
-/*   Updated: 2015/04/27 10:35:36 by sdurr            ###   ########.fr       */
+/*   Updated: 2015/04/28 18:32:06 by sdurr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ t_list				*test_first_last(t_list *s);
 t_list				*push_a(t_list *b, t_list *s);
 void				swap(t_list *s);
 void				rotate(t_list *s);
-void				push_b(t_list *s, t_list *b);
+t_list 				*push_b(t_list *s, t_list *b);
 
 #endif
